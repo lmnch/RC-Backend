@@ -29,9 +29,12 @@ public class MapTile {
         double dY = earthRadiusKm * Math.tan(dLat) * 1000 / TILE_SIZE;
         double dX = earthRadiusKm * Math.tan(dLong) * 1000 / TILE_SIZE;
 
+
         // check distance
-        if ((dX - this.x) * (dX - this.x) <= DANGER_DISTANCE && (dY - this.y) * (dY - this.y) <= DANGER_DISTANCE) {
+        if ((dX - this.x) * (dX - this.x) <= DANGER_DISTANCE*DANGER_DISTANCE && (dY - this.y) * (dY - this.y) <= DANGER_DISTANCE*DANGER_DISTANCE) {
             this.dangerState++;
+        }else{
+           // System.out.println("ungfährlihc  "+(dX - this.x));
         }
 
         return this.dangerState;
